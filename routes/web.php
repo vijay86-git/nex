@@ -11,6 +11,17 @@
 |
 */
 
+Route::group(array('domain' => 'cp.nexladder.com', 'namespace' => 'Admin'), function() {
+
+            Route::get('/ss', function() {
+                                  echo Session::get('name');
+                                  echo "do stuff here";
+            });
+
+            Route::get('/', array('as' => 'dashboard', 'uses' => 'DashboardController@index'));
+
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
